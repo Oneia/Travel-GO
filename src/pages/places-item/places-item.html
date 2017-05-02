@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{item.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>{{item.title}}</h2>
+  <img src={{item.img}} #file>
+  <div [innerHTML]="item.content"></div>
+  <div class="item-footer"><strong>Расстояние - {{item.distance}} метров.</strong> <a (click)="goToItemAtMap(item.lat, item.lng)">Перейти к маркеру</a></div>
+
+  <a (click)="shareFacebook(file)" *ngIf="item.status">Поделиться на фейсбук <ion-icon name="logo-facebook"></ion-icon></a>
+</ion-content>

@@ -1,0 +1,13 @@
+page-map {
+  &.ion-page > ion-content {
+    background: transparent;
+    background-image: none;
+  }
+  .test {
+  	z-index: 99999999;
+  	opacity: 0.5;
+  	height: 100vh;
+  	width: 100vw;
+  	background: #000;
+  }
+}

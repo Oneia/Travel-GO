@@ -1,0 +1,9 @@
+page-info {
+  .icon-info-button {
+    position: absolute;
+    left: 20px;
+    &.facebook {
+      color: blue;
+    }
+  }
+}

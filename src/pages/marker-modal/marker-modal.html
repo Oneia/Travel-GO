@@ -1,0 +1,16 @@
+<ion-content padding class="guide-modal">
+  <div class="close close-btn" (click)="cansel()">
+      <span class="close warp black"></span>
+  </div>
+    <div class="content">
+        <h2>{{markerData.title}}</h2>
+        <div>
+          <img src={{markerData.img}} alt="">
+          <p>
+            {{markerData.description | truncate : 150 }}
+            <a (click)="readMore()">  читать дальше</a>
+          </p>
+          <p><strong>Расстояние - {{markerData.distance}} метров.</strong></p>
+        </div>
+    </div>
+</ion-content>

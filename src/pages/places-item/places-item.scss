@@ -1,0 +1,17 @@
+page-places-item {
+  .scroll-content {
+    color: #000;
+    font-family: "Segoe UI", "Noto Sans", sans-serif;
+    p {
+      font-style: italic;
+      font-size: 15px;
+    }
+  }
+  h2 {
+    text-align: center;
+  }
+  .item-footer {
+    display: flex;
+    justify-content: space-around;
+  }
+}

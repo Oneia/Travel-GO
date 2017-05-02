@@ -1,0 +1,45 @@
+ion-header {
+  .toolbar-background {
+    //background-color: #ffffff;
+   // color: #000;
+  }
+  button{
+   // color: #6c709d !important;
+  }
+  .toolbar-title {
+   // color: #000;
+    font-style: italic;
+    text-align: center;
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
+.ion-page > ion-content {
+ // background-image: url('../assets/bg-ship.jpg');
+  //background-color: #fff;
+  //background-size: cover;
+}
+.item-block {
+  background-color: transparent;
+  color: #000;
+  font-family: mirislc;
+}
+.item {
+  p {
+    color: #000;
+  }
+}
+.menu-inner {
+  .menu-content {
+   // background-image: url('../assets/castle-menu.jpg');
+   // background-size: cover;
+    font-style: italic;
+    .item {
+      font-size: 28px;
+    }
+  }
+}
+.searchbar-input {
+  background-color: lightcyan;
+}

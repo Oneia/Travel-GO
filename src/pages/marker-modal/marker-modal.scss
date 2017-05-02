@@ -1,0 +1,73 @@
+ion-modal.my-popup {
+  @media (min-width: 300px) and (min-height: 500px) {
+    ion-backdrop {
+      visibility: visible;
+    }
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    overflow: hidden;
+    max-width: 280px;
+    border-radius: 2px;
+    width: 80vw;
+    height: 50vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    background-color: #fafafa;
+  }
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    &.close-btn {
+      top: 0;
+      right: 0;
+      position: fixed;
+    }
+  }
+.close.warp::before, .close.warp::after {
+         border-radius: 120% 0;
+       }
+.close.black::before, .close.black::after {
+         height: 8px;
+         margin-top: -4px;
+       }
+.close::before {
+   -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);
+   transform: rotate(45deg);
+ }
+.close::before, .close::after {
+   content: '';
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   top: 50%;
+   left: 0;
+   margin-top: -1px;
+   background: #000;
+ }
+  .close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  h2 {
+    text-align: center;
+  }
+}

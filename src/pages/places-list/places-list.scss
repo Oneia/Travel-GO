@@ -1,0 +1,16 @@
+page-places-list.ion-page {
+  .content {
+    .scroll-content {
+      padding: 0;
+    }
+    .list-icon-arrow {
+      font-size: 23px;
+    }
+  }
+  .checked-img {
+    width: 20px;
+    position: absolute;
+    right: 50px;
+    top: 22px;
+  }
+}
