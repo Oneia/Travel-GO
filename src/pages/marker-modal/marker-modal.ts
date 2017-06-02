@@ -1,17 +1,26 @@
-import { Component, Renderer2  } from '@angular/core';
-import { ViewController, NavParams } from 'ionic-angular';
+import { Component,
+         Renderer2  }      from '@angular/core';
+import { ViewController,
+         NavParams }       from 'ionic-angular'
+// Services
+import { PlacesService }   from '../../services/places/places.service';
+// Models
+import PlaceModel          from '../../models/place.interface';
+
 
 @Component({
   selector: 'page-marker-modal',
   templateUrl: 'marker-modal.html'
 })
+
 export class MarkerModalPage {
 
-  private markerData: any;
+  private markerData: PlaceModel;
 
-  constructor(private view: ViewController,
-              public renderer: Renderer2,
-              private params: NavParams) {
+  constructor(private view:            ViewController,
+              private renderer:        Renderer2,
+              private placesService:   PlacesService,
+              private params:          NavParams) {
     this.renderer.addClass(view.pageRef().nativeElement, 'my-popup');
     this.markerData = params.get('sendingPlace');
     }
@@ -21,15 +30,16 @@ export class MarkerModalPage {
    * Navigate to item page
    *
    */
-  public readMore(): void {
-      this.view.dismiss(true);
-    }
+  private readMore(): void {
+    this.view.dismiss(true);
+  }
 
   /**
-   * Close current popup
+   *
+   * Open a google navigate launcher
+   *
    */
-  public cansel(): void {
-        this.view.dismiss(false);
-    }
-
+  private goToGoogleNavigate(): void {
+    this.placesService.googleNavigate(this.markerData.lat, this.markerData.lng);
+  }
 }

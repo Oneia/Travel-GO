@@ -11,7 +11,7 @@ ion-modal.my-popup {
     max-width: 280px;
     border-radius: 2px;
     width: 80vw;
-    height: 50vh;
+    height: 80vh;
     top: 0;
     bottom: 0;
     left: 0;
@@ -69,5 +69,9 @@ ion-modal.my-popup {
 
   h2 {
     text-align: center;
+  }
+  .justify-center {
+    display: flex;
+    justify-content: center;
   }
 }

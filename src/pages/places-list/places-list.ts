@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component }        from '@angular/core';
+import { NavController }    from 'ionic-angular';
 // Components
-import { PlacesItemPage } from '../places-item/places-item';
+import { PlacesItemPage }   from '../places-item/places-item';
 // Services
-import { PlacesService } from '../../services/places/places.service';
+import { PlacesService }    from '../../services/places/places.service';
 import { ShareDataService } from '../../services/share/shareData.service';
+// Models
+import PlaceModel           from '../../models/place.interface';
+import ILatLng              from '../../models/latLng.interface';
 // Constants
-import * as ShareDataConstans from '../../services/share/shareData.constants';
+import * as ShareDataConstants from '../../services/share/shareData.constants';
 
 @Component({
   selector: 'page-places-list',
@@ -14,32 +17,34 @@ import * as ShareDataConstans from '../../services/share/shareData.constants';
 })
 export class PlacesListPage {
 
-  private placesList;
-  private placesListInitial;
+  private placesList:        PlaceModel[];
+  private placesListInitial: PlaceModel[];
 
-  constructor(public navCtrl: NavController,
+  constructor(public navCtrl:          NavController,
               public shareDataService: ShareDataService,
-              public placesService: PlacesService
+              public placesService:    PlacesService
   ) {
     this.placesListInitial = placesService.getPlaces();
     this.placesList = this.placesListInitial;
   }
 
-  ionViewDidLoad() {
-
+  /**
+   *
+   * Navigate to the item page
+   *
+   * @param item
+   */
+  public goToDetails(item: PlaceModel): void {
+    this.navCtrl.push(PlacesItemPage, {item});
   }
 
   /**
    *
-   * Navigate to item page
+   * Search place box
    *
-   * @param item
+   * @param event
    */
-  public goToDetails(item: any) {
-    this.navCtrl.push(PlacesItemPage, {item});
-  }
-
-  public searchPlace(event: any) {
+  public searchPlace(event: any): void {
     this.placesList = this.placesListInitial;
     let searchValue = event.target.value;
 
@@ -47,17 +52,24 @@ export class PlacesListPage {
       return;
     }
 
-    this.placesList = this.placesList.filter((country) => {
-      return country.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+    this.placesList = this.placesList.filter((place: PlaceModel) => {
+      return place.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
     });
   }
 
-  public goToItemAtMap(lat, lng) {
-    const data = {
+  /**
+   *
+   * Navigate to the place at map
+   *
+   * @param lat
+   * @param lng
+   */
+  public goToItemAtMap(lat: number, lng: number): void {
+    const data: ILatLng = {
       lat,
       lng
     };
-    this.shareDataService.emitValue(ShareDataConstans.STREAM_SET_MARKER_CENTER, data);
+    this.shareDataService.emitValue(ShareDataConstants.STREAM_SET_MARKER_CENTER, data);
     this.navCtrl.parent.select(0);
   }
 }

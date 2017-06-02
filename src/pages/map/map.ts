@@ -5,7 +5,7 @@ import {
 import {
   NavController,
   ModalController,
-  NavParams,
+  Platform,
   AlertController
 } from 'ionic-angular';
 import {
@@ -16,118 +16,137 @@ import {
   Marker
 } from '@ionic-native/google-maps';
 import { Diagnostic }           from '@ionic-native/diagnostic';
-import { Geolocation }          from '@ionic-native/geolocation';
-import { Observable }           from 'rxjs';
 // Components
 import { MarkerModalPage }      from '../marker-modal/marker-modal';
 import { PlacesItemPage }       from '../places-item/places-item';
 // Services
 import { PlacesService }        from '../../services/places/places.service';
 import { ShareDataService }     from '../../services/share/shareData.service';
+// Models
+import PlaceModel               from '../../models/place.interface';
+import ILatLng                  from '../../models/latLng.interface';
 // Constants
-import * as ShareDataConstans   from '../../services/share/shareData.constants';
+import * as ShareDataConstants  from '../../services/share/shareData.constants';
 import * as UtilsConstants      from '../../services/utils.constants';
 import * as MapConstants        from './map.constants';
 
 @Component({
   selector: 'page-map',
-  templateUrl: 'map.html',
-  providers: [GoogleMaps, Diagnostic, Geolocation]
+  templateUrl: 'map.html'
 })
+
 export class MapPage implements OnDestroy {
 
   private map: any;
-  private marker: any;
-  private myPosition: any;
-  private places: any[];
-  private watch: any;
+  private myPosition: ILatLng;
+  private places: PlaceModel[];
+  private markerWH: Object = {
+    width: 30,
+    height: 30
+  };
 
-  constructor(public navCtrl: NavController,
-              private placesService: PlacesService,
-              public alertCtrl: AlertController,
-              private googleMaps: GoogleMaps,
+  constructor(private navCtrl:          NavController,
+              private placesService:    PlacesService,
+              private alertCtrl:        AlertController,
+              private googleMaps:       GoogleMaps,
               private shareDataService: ShareDataService,
-              private diagnostic: Diagnostic,
-              private geolocation: Geolocation,
-              private params: NavParams,
-              public modal: ModalController) {
-    this.places = this.placesService.getPlaces();
+              private diagnostic:       Diagnostic,
+              private platform:         Platform,
+              private modal:            ModalController) {
+
   }
 
   /**
    * @inheritDoc
    */
   ionViewDidLoad() {
-    this.diagnostic.isLocationAvailable()
-      .then(res => {
-        if (res) {
-          this.loadMap();
-        }
-      });
-    this.shareDataService.trySubject(ShareDataConstans.STREAM_SET_MARKER_CENTER)
-      .subscribe(data => {
-        this.setPosition(data.lat, data.lng);
-      });
+    this.platform.ready().then(() => {
+      this.places = this.placesService.getPlaces();
+      this.diagnostic.isLocationAvailable()
+        .then(res => {
+          if (res) {
+            this.loadMap();
+          }
+        });
+      this.shareDataService.trySubject(ShareDataConstants.STREAM_SET_MARKER_CENTER)
+        .subscribe((data: ILatLng) => {
+          this.setPosition(data.lat, data.lng);
+        });
+    });
   }
 
   /**
    * @inheritDoc
    */
   ngOnDestroy() {
-    this.shareDataService.emitValue(ShareDataConstans.STREAM_UPDATE_PLACES, this.places);
+    this.shareDataService.emitValue(ShareDataConstants.STREAM_UPDATE_PLACES, this.places);
   }
 
   /**
    * Load native map
    */
-  private loadMap() {
+  private loadMap(): void {
 
     const location: LatLng = new LatLng(this.places[this.places.length-1].lat, this.places[this.places.length-1].lng);
-    const mapOption = {
-      'controls': {
-        'myLocationButton': true
+    const mapOption: any = {
+      controls: {
+        myLocationButton: true,
+        compassButton: false
       },
-      'gestures': {
-        'scroll': true,
-        'tilt': true,
-        'rotate': true,
-        'zoom': true
+      gestures: {
+        scroll: true,
+        tilt: true,
+        rotate: true,
+        zoom: true,
       },
-      'camera': {
-        'latLng': location,
-        'tilt': 30,
-        'zoom': 15,
-        'bearing': 50
-      }
-      // 'styles': mapStyle
+      camera: {
+        latLng: location,
+        tilt: 30,
+        zoom: 15,
+        bearing: 50
+      },
+      // mapType: GoogleMapsMapTypeId.HYBRID,
+      // styles: MapConstants.mapStyleSilver
     };
-    const hours = new Date().getHours();
+    const hours: number = new Date().getHours();
     if (hours < 6 || hours > 19) {
-      mapOption['styles'] = MapConstants.mapStyle;
+      mapOption.styles = MapConstants.mapStyleNight;
     }
     this.map = this.googleMaps.create('map', mapOption);
-    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
-      this.places.forEach(el => {
+
+    this.map.on(GoogleMapsEvent.MAP_READY).subscribe((e) => {
+      this.places.forEach((el: PlaceModel) => {
         this.createNewMarker(el);
       });
     });
     this.map.on(GoogleMapsEvent.CAMERA_CHANGE)
-      .subscribe(() => {
+      .subscribe((el) => {
         this.detectPosition();
+        if (this.places[0].marker instanceof Marker) {
+          if (el.zoom > 14) {
+            this.places.forEach(place => {
+              place.marker.showInfoWindow();
+            });
+          } else {
+            this.places.forEach(place => {
+              place.marker.hideInfoWindow();
+            });
+          }
+        }
       })
   }
 
   /**
    * Listener  own position
    */
-  private detectPosition() {
+  private detectPosition(): void {
     this.map.getMyLocation()
       .then((data: any) => {
         this.myPosition = {
           lat: data.latLng.lat,
           lng: data.latLng.lng
         };
-        this.places.forEach(el => {
+        this.places.forEach((el: PlaceModel) => {
           const distance: number = this.placesService.getDistanceBetweenPoints(this.myPosition, {
             lat: el.lat,
             lng: el.lng
@@ -162,14 +181,16 @@ export class MapPage implements OnDestroy {
    *
    * @param place
    */
-  private createNewMarker(place) {
-    const position = new LatLng(place.lat, place.lng);
-    const icon: string = place.status ? 'violet' : 'green';
+  private createNewMarker(place: PlaceModel): void {
+    const position: LatLng = new LatLng(place.lat, place.lng);
 
     const markerOptions: MarkerOptions = {
       position,
       title: place.title,
-      icon
+      icon: {
+        url: MapConstants.MARKER_BLACK,
+        size: this.markerWH
+      }
     };
 
     this.map.addMarker(markerOptions)
@@ -185,6 +206,9 @@ export class MapPage implements OnDestroy {
             const sendingPlace = this.places.find(el => {
               return el.title === place.title;
             });
+
+
+
             const modal = this.modal.create(MarkerModalPage, {sendingPlace});
             modal.present();
             modal.onDidDismiss((res: boolean) => {
@@ -192,6 +216,7 @@ export class MapPage implements OnDestroy {
                 this.navCtrl.push(PlacesItemPage, {item: place});
               }
               this.map.setClickable(true);
+              marker.hideInfoWindow();
             });
           });
       });
@@ -204,8 +229,8 @@ export class MapPage implements OnDestroy {
    * @param lat
    * @param lng
    */
-  private setPosition(lat: number, lng: number) {
-    const location = new LatLng(lat, lng);
+  private setPosition(lat: number, lng: number): void {
+    const location: LatLng = new LatLng(lat, lng);
     this.map.animateCamera({
       'target': location,
       'tilt': 60,
@@ -221,7 +246,7 @@ export class MapPage implements OnDestroy {
    *
    * @param place
    */
-  private showConfirm(place) {
+  private showConfirm(place: PlaceModel): void {
     this.map.setClickable(false);
     const confirm = this.alertCtrl.create({
       title: 'Поздравляем!',
@@ -251,15 +276,18 @@ export class MapPage implements OnDestroy {
    *
    * @param feature
    */
-  private setProgress(feature) {
-    this.places.forEach(el => {
+  private setProgress(feature: PlaceModel): void {
+    this.places.forEach((el: PlaceModel) => {
       if (el.title === feature.title) {
         el.status = true;
-        el.marker.setIcon('violet');
+        el.marker.setIcon({
+          url: MapConstants.MARKER_GREEN,
+          size: this.markerWH
+        });
       }
     });
     this.setLocalStoragePlaces(this.places);
-    this.shareDataService.emitValue(ShareDataConstans.STREAM_UPDATE_PLACES, this.places);
+    this.shareDataService.emitValue(ShareDataConstants.STREAM_UPDATE_PLACES, this.places);
   }
 
   /**
@@ -268,7 +296,7 @@ export class MapPage implements OnDestroy {
    *
    * @param res
    */
-  private setLocalStoragePlaces(res) {
+  private setLocalStoragePlaces(res): void {
     localStorage.setItem(UtilsConstants.LOCAL_PLACES, JSON.stringify(res));
   }
 }

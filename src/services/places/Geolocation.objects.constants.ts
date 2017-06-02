@@ -171,25 +171,25 @@ export const PREOBRJ_SOBOR = {
 	<img src="assets/img/preobraj_sobor/3.jpg">
 	`
 }
-export const ZOO = {
-	lat: 46.4675686,
-	lng: 30.7296983,
-  	title: 'Зоопарк',
-	img: 'assets/img/zoo/1.jpg',
-  description: `	Одесский зоопарк – чудесное место отдыха для взрослых и детей.  
-Содержание диких животных определяет уникальность зоопарков. Именно зоопарки являются местами спасения редких и исчезающих видов животных – ведь в наше время высоких технологий и всеобщей компьютеризации люди все меньше места оставляют дикой природе и животным.
-Одесский зоопарк – `,
-	content: `
-	
-		Одесский зоопарк – чудесное место отдыха для взрослых и детей.  
-Содержание диких животных определяет уникальность зоопарков. Именно зоопарки являются местами спасения редких и исчезающих видов животных – ведь в наше время высоких технологий и всеобщей компьютеризации люди все меньше места оставляют дикой природе и животным.
-Одесский зоопарк – единственный в Украине, где успешно размножались индийские слоны, ставшие счастливыми родителями трёх слонят.
-В нашем зоопарке функционирует единственный в Украине питомник хищных птиц и сов, где можно увидеть самых разнообразных пернатых хищников, которые обитают в нашей стране. Стоит учитывать, что  многие из них занесены в Красную книгу и требуют нашей опеки и защиты. Об этих видах и конечно, о других питомцах зоопарка могут рассказать Вам наши опытные экскурсоводы.
-При зоопарке действует акватеррариум, где можно увидеть разнообразных экзотических рыб, змей и прочее.
-Кроме того, в зоопарке регулярно проводятся  экологические праздники для юных посетителей.
-<img src="assets/img/zoo/2.jpg">
-	`
-}
+// export const ZOO = {
+// 	lat: 46.4675686,
+// 	lng: 30.7296983,
+//   	title: 'Зоопарк',
+// 	img: 'assets/img/zoo/1.jpg',
+//   description: `	Одесский зоопарк – чудесное место отдыха для взрослых и детей.
+// Содержание диких животных определяет уникальность зоопарков. Именно зоопарки являются местами спасения редких и исчезающих видов животных – ведь в наше время высоких технологий и всеобщей компьютеризации люди все меньше места оставляют дикой природе и животным.
+// Одесский зоопарк – `,
+// 	content: `
+//
+// 		Одесский зоопарк – чудесное место отдыха для взрослых и детей.
+// Содержание диких животных определяет уникальность зоопарков. Именно зоопарки являются местами спасения редких и исчезающих видов животных – ведь в наше время высоких технологий и всеобщей компьютеризации люди все меньше места оставляют дикой природе и животным.
+// Одесский зоопарк – единственный в Украине, где успешно размножались индийские слоны, ставшие счастливыми родителями трёх слонят.
+// В нашем зоопарке функционирует единственный в Украине питомник хищных птиц и сов, где можно увидеть самых разнообразных пернатых хищников, которые обитают в нашей стране. Стоит учитывать, что  многие из них занесены в Красную книгу и требуют нашей опеки и защиты. Об этих видах и конечно, о других питомцах зоопарка могут рассказать Вам наши опытные экскурсоводы.
+// При зоопарке действует акватеррариум, где можно увидеть разнообразных экзотических рыб, змей и прочее.
+// Кроме того, в зоопарке регулярно проводятся  экологические праздники для юных посетителей.
+// <img src="assets/img/zoo/2.jpg">
+// 	`
+// }
 export const LIGHTHOUSE = {
 	lat: 46.4965237,
 	lng: 30.7320598,
@@ -209,33 +209,33 @@ export const LIGHTHOUSE = {
 <img src="assets/img/lighthouse/2.jpg">
 	`
 }
-export const PUSHIN_MUSEUM = {
-	lat: 46.4851162,
-	lng: 30.7407734,
-  	title: 'Мемориальный музей А. С. Пушкина',
-	img: 'assets/img/pushkin_museum/1.jpg',
-  description: `В Одессе, на улице Пушкинской, 13 находится литературно-мемориальный музей А. С. Пушкина. В 20-е годы XIX века этот дом принадлежал известному негоцианту Шарлю Сикару. Это был один из первых отелей молодого города – «Hotel du Nord». По приезде в Одессу, 3 июля 1823 года, Пушкин остановился в этой гостинице и прожил здесь месяц.
-     За тринадцать месяцев одесской ссылки им были созданы тридцать лирических стихотвор`,
-	content: `
-	<img src="assets/img/pushkin_museum/2.jpg">
-В Одессе, на улице Пушкинской, 13 находится литературно-мемориальный музей А. С. Пушкина. В 20-е годы XIX века этот дом принадлежал известному негоцианту Шарлю Сикару. Это был один из первых отелей молодого города – «Hotel du Nord». По приезде в Одессу, 3 июля 1823 года, Пушкин остановился в этой гостинице и прожил здесь месяц.
-     За тринадцать месяцев одесской ссылки им были созданы тридцать лирических стихотворений, поэма «Цыганы», завершена работа над «Бахчисарайским фонтаном», написано две с половиной главы «Евгения Онегина». Описав Одессу в главе «Путешествие Онегина», Пушкин, по выражению поэта В. Туманского, подарил городу «грамоту на бессмертие».
-      Улица, на которой жил великий поэт, ранее называвшаяся Итальянской, была переименована в 1880 году в Пушкинскую, а над воротами была установлена табличка «Здесь жил Пушкин».
-<img src="assets/img/pushkin_museum/3.jpg">
-	`
-}
-export const NUMIZ_MUSEUM = {
-	lat: 46.4825259,
-	lng: 30.7353591,
-  	title: 'Одесский музей нумизматики',
-	img: 'assets/img/numiz_muzeum/1.jpg',
-  description: `Профилем и задачей музея является изучение истории монетного дела и денежного обращения, а также сохранение и показ важнейших исторических памятников, относящихся к древне`,
-	content: `
-	
-Профилем и задачей музея является изучение истории монетного дела и денежного обращения, а также сохранение и показ важнейших исторических памятников, относящихся к древней истории и культуре Северного Причерноморья, Руси и Украины. Весной 1991 года в Одессе была открыта галерея «Монетный двор». В январе 1999 года она была реорганизована в «Одесский музей нумизматики».
-<img src="assets/img/numiz_muzeum/2.jpeg">
-	`
-}
+// export const PUSHIN_MUSEUM = {
+// 	lat: 46.4851162,
+// 	lng: 30.7407734,
+//   	title: 'Мемориальный музей А. С. Пушкина',
+// 	img: 'assets/img/pushkin_museum/1.jpg',
+//   description: `В Одессе, на улице Пушкинской, 13 находится литературно-мемориальный музей А. С. Пушкина. В 20-е годы XIX века этот дом принадлежал известному негоцианту Шарлю Сикару. Это был один из первых отелей молодого города – «Hotel du Nord». По приезде в Одессу, 3 июля 1823 года, Пушкин остановился в этой гостинице и прожил здесь месяц.
+//      За тринадцать месяцев одесской ссылки им были созданы тридцать лирических стихотвор`,
+// 	content: `
+// 	<img src="assets/img/pushkin_museum/2.jpg">
+// В Одессе, на улице Пушкинской, 13 находится литературно-мемориальный музей А. С. Пушкина. В 20-е годы XIX века этот дом принадлежал известному негоцианту Шарлю Сикару. Это был один из первых отелей молодого города – «Hotel du Nord». По приезде в Одессу, 3 июля 1823 года, Пушкин остановился в этой гостинице и прожил здесь месяц.
+//      За тринадцать месяцев одесской ссылки им были созданы тридцать лирических стихотворений, поэма «Цыганы», завершена работа над «Бахчисарайским фонтаном», написано две с половиной главы «Евгения Онегина». Описав Одессу в главе «Путешествие Онегина», Пушкин, по выражению поэта В. Туманского, подарил городу «грамоту на бессмертие».
+//       Улица, на которой жил великий поэт, ранее называвшаяся Итальянской, была переименована в 1880 году в Пушкинскую, а над воротами была установлена табличка «Здесь жил Пушкин».
+// <img src="assets/img/pushkin_museum/3.jpg">
+// 	`
+// }
+// export const NUMIZ_MUSEUM = {
+// 	lat: 46.4825259,
+// 	lng: 30.7353591,
+//   	title: 'Одесский музей нумизматики',
+// 	img: 'assets/img/numiz_muzeum/1.jpg',
+//   description: `Профилем и задачей музея является изучение истории монетного дела и денежного обращения, а также сохранение и показ важнейших исторических памятников, относящихся к древне`,
+// 	content: `
+//
+// Профилем и задачей музея является изучение истории монетного дела и денежного обращения, а также сохранение и показ важнейших исторических памятников, относящихся к древней истории и культуре Северного Причерноморья, Руси и Украины. Весной 1991 года в Одессе была открыта галерея «Монетный двор». В январе 1999 года она была реорганизована в «Одесский музей нумизматики».
+// <img src="assets/img/numiz_muzeum/2.jpeg">
+// 	`
+// }
 export const ARCADIA = {
 	lat: 46.430972,
 	lng: 30.762615,
@@ -324,22 +324,22 @@ export const GO_ENGLISH = {
 	 description: 'Go english test test test test. BOOM!',
 	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem obcaecati voluptate voluptatem, necessitatibus unde dicta vitae, ducimus eaque autem in!`
 }
-export const SHASHA_HOME = {
-	lat: 49.2480255,
-	lng: 28.534433,
-  	title: `Sasha's home`,
-	img: 'assets/img/images.jpeg',
-	description: 'Welcome. We are Lorem ipsum dolor sit amet.',
-	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem praesentium eos quibusdam nesciunt assumenda ipsam, ducimus consequuntur magni laudantium libero voluptas, dolorum ratione doloremque quos aperiam voluptatum. Optio laboriosam ipsam consequatur expedita possimus nemo cumque ab temporibus aspernatur unde, aliquid ratione magni earum vero dolor sint alias soluta asperiores ut.`
-}
-export const STATION_STREET = {
-	lat: 49.2282129,
-	lng: 28.5016835,
-  	title: `Station's train street`,
-	img: 'assets/img/ok4oBh11UEU.jpg',
-	description: 'Work Vanya, work!!!',
-	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore ad animi iusto magni quod iste tempore at atque aliquam, earum modi dignissimos quae aspernatur nesciunt ab facilis soluta possimus fugit, ea voluptates consequatur, quas pariatur quibusdam quisquam. Impedit animi tempore nostrum voluptates, blanditiis optio non nesciunt quasi enim quibusdam beatae autem perferendis earum, fugit porro repellat ducimus. Iure ab corrupti beatae ex. Nemo obcaecati consectetur, fugit veritatis eligendi quisquam recusandae est similique odio velit aspernatur debitis cum suscipit quibusdam, quo tempora! Assumenda numquam, tenetur. Unde ipsum doloremque, enim nulla aspernatur atque laboriosam eligendi placeat obcaecati autem, quos, porro inventore non.`
-}
+// export const SHASHA_HOME = {
+// 	lat: 49.2480255,
+// 	lng: 28.534433,
+//   	title: `Sasha's home`,
+// 	img: 'assets/img/images.jpeg',
+// 	description: 'Welcome. We are Lorem ipsum dolor sit amet.',
+// 	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem praesentium eos quibusdam nesciunt assumenda ipsam, ducimus consequuntur magni laudantium libero voluptas, dolorum ratione doloremque quos aperiam voluptatum. Optio laboriosam ipsam consequatur expedita possimus nemo cumque ab temporibus aspernatur unde, aliquid ratione magni earum vero dolor sint alias soluta asperiores ut.`
+// }
+// export const STATION_STREET = {
+// 	lat: 49.2282129,
+// 	lng: 28.5016835,
+//   	title: `Station's train street`,
+// 	img: 'assets/img/ok4oBh11UEU.jpg',
+// 	description: 'Work Vanya, work!!!',
+// 	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore ad animi iusto magni quod iste tempore at atque aliquam, earum modi dignissimos quae aspernatur nesciunt ab facilis soluta possimus fugit, ea voluptates consequatur, quas pariatur quibusdam quisquam. Impedit animi tempore nostrum voluptates, blanditiis optio non nesciunt quasi enim quibusdam beatae autem perferendis earum, fugit porro repellat ducimus. Iure ab corrupti beatae ex. Nemo obcaecati consectetur, fugit veritatis eligendi quisquam recusandae est similique odio velit aspernatur debitis cum suscipit quibusdam, quo tempora! Assumenda numquam, tenetur. Unde ipsum doloremque, enim nulla aspernatur atque laboriosam eligendi placeat obcaecati autem, quos, porro inventore non.`
+// }
 export const FAIRY_TUNNEL = {
 	lat: 46.4506,
 	lng: 30.7656,
@@ -348,21 +348,22 @@ export const FAIRY_TUNNEL = {
   description: `Самое короткое безпоездное "метро" в мире находится в Одессе и называется "Сказочный тоннель". Длина 200 м, максимальная глубина пролегания около 20 м (5-ти этажка). Соединяет 2 "станции": верхняя - 7-й корпус санатория "Магнолия" с выходом на Французский бульвар, нижняя - пляж "Дельфин", выход к морю.`,
 	content: `Самое короткое безпоездное "метро" в мире находится в Одессе и называется "Сказочный тоннель". Длина 200 м, максимальная глубина пролегания около 20 м (5-ти этажка). Соединяет 2 "станции": верхняя - 7-й корпус санатория "Магнолия" с выходом на Французский бульвар, нижняя - пляж "Дельфин", выход к морю. Тоннель называется "сказочным" потому, что его стены декорированы изображениями с сюжетами из различных сказок и цитатами классиков о море. В тоннеле довольно прохладно даже в сильную жару. Итак, как только старенький лифт спустится к тоннелю, перед вами откроется прекрасный вид. Этот тоннель – одно из малоизвестных сокровищ Одессы. Кажется, будто попадаешь в сказку – на стенах нарисованы птички, национальные орнаменты, сюжеты украинских и русских сказок, цитаты из стихотворений, выложенные из мелкой плитки. Много сюжетов сказок Пушкина и цитат Чехова, здесь вы можете встретить гномов, русалок, рыбаков, водолазов, дельфинов, натолкнуться на корабли, якоря и пр. <img src="assets/img/fairy_tunnel/2.jpg">`
 }
-export const SOBAKA_BITCH= {
-	lat: 46.458283,
-	lng: 30.766485,
-  	title: 'Пляж Собачка',
-	img: 'assets/img/sob.jpg',
-	description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam saepe nulla beatae debitis veniam, cumque amet maiores! Non, possimus, natus?',
-	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem at assumenda, optio, labore modi minima quas reiciendis, id dolor cumque beatae consequatur doloremque nesciunt saepe eaque atque deleniti nostrum facere fuga quod tempora ea a. Sapiente sit aspernatur, dolor maxime repudiandae. Tenetur aliquid quasi amet voluptates voluptatem, dolorem necessitatibus alias ullam. Eius itaque magni corrupti culpa quidem eligendi saepe repellendus, rerum eaque, nisi ipsum modi similique excepturi? Impedit neque harum incidunt hic voluptatum nisi quod. Repellendus ducimus officiis similique obcaecati nihil id architecto, sapiente eius nostrum dicta soluta magnam. Provident sequi optio, voluptate tenetur error rem repudiandae nisi minima quas?`
-}
-// export const CITY_GARDEN = {
-// 	lat: 46.4851162,
-// 	lng: 30.7320598,
-//   	title: 'Городской сад',
-// 	img: 'assets/img/city_garden/1.jpg',
-// 	content: ``
+// export const DOG_BEACH= {
+// 	lat: 46.458283,
+// 	lng: 30.766485,
+//   	title: 'Пляж Собачка',
+// 	img: 'assets/img/sob.jpg',
+// 	description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam saepe nulla beatae debitis veniam, cumque amet maiores! Non, possimus, natus?',
+// 	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem at assumenda, optio, labore modi minima quas reiciendis, id dolor cumque beatae consequatur doloremque nesciunt saepe eaque atque deleniti nostrum facere fuga quod tempora ea a. Sapiente sit aspernatur, dolor maxime repudiandae. Tenetur aliquid quasi amet voluptates voluptatem, dolorem necessitatibus alias ullam. Eius itaque magni corrupti culpa quidem eligendi saepe repellendus, rerum eaque, nisi ipsum modi similique excepturi? Impedit neque harum incidunt hic voluptatum nisi quod. Repellendus ducimus officiis similique obcaecati nihil id architecto, sapiente eius nostrum dicta soluta magnam. Provident sequi optio, voluptate tenetur error rem repudiandae nisi minima quas?`
 // }
+export const MALINOVSKAYA = {
+	lat: 46.437780,
+	lng: 30.721332,
+	title: 'Малиновская улица 11',
+	img: 'assets/img/book_fantasy.jpg',
+	description: 'Lorem ipsum dolor sit a',
+	content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem at assumenda, optio, labore modi minima quas re`
+}
 // export const CITY_GARDEN = {
 // 	lat: 46.4851162,
 // 	lng: 30.7320598,

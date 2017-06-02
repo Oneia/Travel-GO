@@ -12,11 +12,11 @@
      <ion-icon name="analytics"></ion-icon>
      Вы посетили {{getProgress().resolved}} из {{getProgress().full}} ({{getProgress().percent}}%)
    </p>
-  <button ion-button full outline color="secondary" (click)="shareFacebook()">
+  <button ion-button full outline color="secondary" (tap)="shareFacebook()">
     <ion-icon name="logo-facebook" class="icon-info-button facebook"></ion-icon>
     Share facebook
   </button>
-  <button ion-button full outline color="secondary" (click)="clearLocalStorage()">
+  <button ion-button full outline color="secondary" (tap)="clearLocalStorage()">
     <ion-icon name="trash" color="danger" class="icon-info-button"></ion-icon>
     Clear storage
   </button>
