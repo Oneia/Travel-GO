@@ -122,14 +122,24 @@ export class MapPage implements OnDestroy {
     this.map.on(GoogleMapsEvent.CAMERA_CHANGE)
       .subscribe((el) => {
         this.detectPosition();
+        console.log(el.zoom);
         if (this.places[0].marker instanceof Marker) {
           if (el.zoom > 14) {
+            console.log('here')
+
             this.places.forEach(place => {
-              place.marker.showInfoWindow();
+              // console.log(place.marker.showInfoWindow)
+              // if (place.marker.showInfoWindow() instanceof Function) {
+              //   place.marker.showInfoWindow();
+              // }
             });
           } else {
+            console.log('less')
             this.places.forEach(place => {
-              place.marker.hideInfoWindow();
+              // console.log(place.marker.showInfoWindow)
+              // if (place.marker.showInfoWindow() instanceof Function) {
+              //   place.marker.hideInfoWindow();
+              // }
             });
           }
         }
@@ -152,7 +162,9 @@ export class MapPage implements OnDestroy {
             lng: el.lng
           });
           el.distance = distance;
-          if (distance <= 100 && !el.circle && !el.status) {
+          console.log(distance);
+          console.log(el)
+          if (distance <= 150 && !el.circle && !el.status) {
             this.map.addCircle({
               'center': new LatLng(el.lat, el.lng),
               'radius': 100,
@@ -188,7 +200,7 @@ export class MapPage implements OnDestroy {
       position,
       title: place.title,
       icon: {
-        url: MapConstants.MARKER_BLACK,
+        url: place.status ? MapConstants.MARKER_GREEN : MapConstants.MARKER_BLACK,
         size: this.markerWH
       }
     };
@@ -248,18 +260,24 @@ export class MapPage implements OnDestroy {
    */
   private showConfirm(place: PlaceModel): void {
     this.map.setClickable(false);
+    console.log('confirm');
+    place.status = true;
+    place.marker.setIcon({
+      url: MapConstants.MARKER_GREEN,
+      size: this.markerWH
+    });
     const confirm = this.alertCtrl.create({
-      title: 'Поздравляем!',
-      message: `Вы можете активировать ${place.title}!`,
+      title: 'Congratulation!',
+      message: `You can activate the ${place.title}!`,
       buttons: [
         {
-          text: 'Позже',
+          text: 'Later...',
           handler: () => {
             this.map.setClickable(true);
           }
         },
         {
-          text: 'Активировать',
+          text: 'Just do it!',
           handler: () => {
             this.map.setClickable(true);
             this.setProgress(place);

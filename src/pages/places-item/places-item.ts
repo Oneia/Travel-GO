@@ -1,10 +1,12 @@
 import { Component }     from '@angular/core';
 import { NavParams,
+         ViewController,
          NavController } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing'
 // Services
 import { ShareDataService } from '../../services/share/shareData.service';
 import { PlacesService }    from '../../services/places/places.service';
+import { PlacesListPage }   from '../places-list/places-list';
 // Models
 import PlaceModel  from '../../models/place.interface';
 import ILatLng     from '../../models/latLng.interface';
@@ -18,12 +20,13 @@ import * as PlacesItemConstants  from './places-item.constants';
 })
 export class PlacesItemPage {
 
-  private item: any;
+  private item: PlaceModel;
   private placesList: PlaceModel[];
   private indexCurrentItem: number;
 
   constructor(private navParams:        NavParams,
               private navCtrl:          NavController,
+              private viewCtrl:         ViewController,
               private shareDataService: ShareDataService,
               private placesService:    PlacesService,
               private socialSharing:    SocialSharing) {
@@ -35,8 +38,17 @@ export class PlacesItemPage {
    * @inheritDoc
    */
   ionViewDidLoad() {
+    this.viewCtrl.showBackButton(false);
     this.placesList = this.placesService.getPlaces();
     this.indexCurrentItem = this.placesList.findIndex((el: PlaceModel) => el.title === this.item.title);
+  }
+
+  /**
+   * Back to list
+   */
+  private showList(): void {
+    console.log('back')
+    this.navCtrl.push(PlacesListPage, {});
   }
 
   /**
@@ -46,6 +58,7 @@ export class PlacesItemPage {
    * @param event - swipe event (left\right)
    */
   private swipeElement(event: any): void {
+     event.preventDefault();
      switch(event.direction) {
        case PlacesItemConstants.SWIPE_DIRECTION_LEFT:
          this.navCtrl.push(PlacesItemPage,
